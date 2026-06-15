@@ -1,0 +1,1701 @@
+## Types of Variables in Java
+
+- A variable can hold single value or multiple values
+- So based on the value which is stored by a variable, all variables are divided into 2 types in java.
+
+1. Primitive variables
+2. Reference variables
+
+### Real-time Example
+- `int age = 21;` for a primitive value and `Employee emp = new Employee();` for an object reference.
+
+### Application
+- Used to decide whether a program stores a simple value directly or keeps a reference to an object.
+
+### Primitive Variables
+
+- These variables hold single value.
+
+#### Real-time Example
+- Storing a product quantity, marks, or age.
+
+#### Application
+- Useful when only one simple value is needed for calculations or checks.
+
+**Examples:**
+```java
+1. int a = 10;
+2. double b = 2.5;
+3. char ch = '@';
+```
+
+### Reference Variables
+
+- These variables hold object and object contains multiple values.
+
+#### Real-time Example
+- Holding a `Customer`, `Car`, or `Account` object in a shopping or banking system.
+
+#### Application
+- Useful when a program must work with structured data or multiple related fields together.
+
+**Examples:**
+```java
+1. String str = new String("hyderabad");
+2. class Employee
+   {
+      int id = 1;
+      String name = "john";
+      double salary = 1000.0;
+   }
+
+   Employee emp = new Employee();
+```
+
+**Notes:**
+1. The datatype of primitive variable is primitive datatype.
+2. The datatype of reference variable is class name which is userdefined datatype.
+
+---
+
+## Variable Types by Position and Purpose
+
+- Based on the purpose and position of declaration of a variable, all variables are divided into 3 types in java.
+
+1. Instance variables
+2. Static variables
+3. Local variables
+
+### Real-time Example
+- A banking app can use instance variables for each account, static variables for shared bank name, and local variables for temporary transaction values.
+
+### Application
+- Helps choose the right scope and lifetime for data in a program.
+
+### Instance Variables
+
+1. If the value of the variable has to be different from one object to another object then go for instance variables.
+2. Instance variables are declared directly inside the class but not inside the method or block or constructor.
+3. Instance variables are created (memory allocated) at the time of object is created and instance variables are created inside the object.
+4. Initialization of instance variables is optional, if we dont initialize instance variables then jvm takes the responsibility to initialize the instance variables with default values.
+
+**Default Values:**
+| Datatype | Default Value |
+|----------|---------------|
+| byte, short, int, long | 0 |
+| float, double | 0.0 |
+| char | '\u0000' |
+| boolean | false |
+| String | null |
+| reference variable | null |
+
+5. Instance variables are also called as object variables or non-static variables.
+6. Instance variables belong to object.
+7. The scope of instance variables is same as object scope because when object is created instance variables are created and we can access instance variables and if object is not created instance variables are also not created and we cannot access instance variables.
+8. Lifetime of instance variables is same as object life time because instance variables are created when object is created and instance variables are destroyed when object is destroyed.
+9. From static method and static block we cannot access instance variables of the same class directly.
+10. In every object a seperate copy of instance variables are created and available.
+
+#### Real-time Example
+- In a `Student` object, `name`, `rollNo`, and `marks` can be instance variables because they differ for each student.
+
+#### Application
+- Used when each object needs its own state.
+
+**Syntax:** `objectName.instanceVariableName;`
+
+---
+
+## Static Variables
+
+1. If the value of the variable has to be same from one object to another object then go for static variables.
+2. Static variables are declared directly inside the class by using static keyword but not inside the method or block or constructor.
+3. Static variables are created (memory allocated) only once at the time of classloading in method area.
+4. Initialization of static variables is not mandatory, it is optional and if we dont initialize static variables then jvm takes the responsibility to initialize static variables with the default values.
+5. Static variables are also called as class variables.
+6. Static variables belong to class.
+7. **Scope and Lifetime:**
+   i. The scope of static variables is same as class scope which means if class is loaded static variables are created so we can access static variables, if class is not loaded static variables are not created so we cannot access static variables.
+   ii. The lifetime of static variables is same as class lifetime which means static variables are created when class is loaded and static variables are destroyed when class is unloaded.
+8. From static method and static block we can access static variables of the same class directly.
+9. Every object in heap area shares a single copy of static variable which is created in method area.
+
+#### Real-time Example
+- A company name, interest rate, or school name can be kept as static because it is common for all objects.
+
+#### Application
+- Used for shared data, counters, constants, and utility values.
+
+**Syntax:** `ClassName.staticVariableName;` (recommended) or `objectName.staticVariableName;`
+
+---
+
+## Local Variables
+
+1. If the requirement of the program or the programmer is to use some variables for temporary purpose then go for local variables.
+2. Local variables are declared directly inside the method or block or constructor but not inside the class.
+3. Local variables are created (memory allocated) in java stacks when the method or block or constructor execution starts.
+4. Initialization of local variables is mandatory at the time of declaring and before accessing.
+5. Local variables are also called as temporary variables or automatic variables.
+6. Local variables belong to method or block and local variables are method or block members.
+7. **Scope and Lifetime:**
+   i. We can access local variables only within the method or block or constructor where they are declared but not outside the method or block or constructor so the scope of local variables is method scope or block scope.
+   ii. When method or block or constructor execution starts local variables are created and when the method or block or constructor execution completes local variables are destroyed this is called as lifetime of local variables.
+8. For instance variables and static variables all modifiers are allowed but for local variables only final modifier is allowed.
+
+#### Real-time Example
+- A loop counter, method input total, or temporary tax value inside a billing method.
+
+#### Application
+- Used for intermediate calculations and temporary processing inside methods.
+
+**Notes:**
+i. We can use primitive variable as instance variable or static variable or local variable.
+ii. We can use reference variable as instance variable or static variable or local variable.
+
+---
+
+## Example - Using All Variable Types
+
+```java
+class One
+{
+}
+
+class Two
+{
+   int i;  //using primitive variable as instance variable
+   One o;  //using reference variable as instance variable
+
+   static int j;  //using primitive variable as static variable
+   static One o1;  //using reference variable as static variable
+
+   public void methodOne()
+   {
+      int k; //using primitive variable as local variable
+      One o2; //using reference variable as local variable
+   }
+}
+```
+
+---
+
+## Methods
+
+**What is a method?**
+
+- A method is a reusable block of statements and a method is used to perform some operation.
+
+### Real-time Example
+- A `calculateInterest()` method in a banking app or a `sendEmail()` method in a notification system.
+
+### Application
+- Methods break a program into reusable units and reduce repeated code.
+
+**Syntax:**
+```
+modifier return-type methodName(parameters/arguments)
+{
+   statement(s);
+   return statement;
+}
+```
+
+### Return Type
+
+- Before the method name if we use any datatype or void keyword then it is called as return type of the method.
+- In java, a method may return some value or may not return some value so the return type of the method indicates whether a method returns a value or not.
+- The method whose return type is other than void such method returns some value and the method whose return type is void such method will not any value.
+- Return type of the method is mandatory.
+
+### Return Statement
+
+- Return statement is used to return the value to the method whose return type is other than void.
+- We cannot use return statement to return the value to the method whose return type is void if we use then compiler gives error.
+- We must have to use return statement to return the value to the method whose return type is other than void if we dont use then compiler gives error.
+- Return statement depends on return type of the method.
+
+### Parameters (Arguments)
+
+- If we use any variables inside the parenthesis of the method such variables are called as parameters or arguments.
+- Method uses parameters or arguments to pass the data and to receive the data.
+- Parameters or arguments are optional.
+- There are 2 types of parameters:
+  1. Actual parameters
+  2. Formal parameters
+- Method uses actual parameters to pass the data to formal parameters and method uses formal parameters to receive the data from actual parameters.
+- Parameters of a method or a constructor are local variables.
+
+### Method Body
+
+- Method body contains statements.
+- Method body is also known as implementation.
+- Method body is mandatory.
+
+### Method Name
+
+- A method must have a name and ends with parenthesis.
+
+### Modifier
+
+- It is used to specify the scope of the method.
+
+### Different Sections of the Method
+
+**Method has 2 sections:**
+
+1. **Method header or method prototype**
+   - Consists of method name, return type, parameters and modifier.
+   - Example: `public int add(int a, int b);`
+
+2. **Method body or implementation**
+   - Consists of statements.
+   - Example:
+     ```java
+     public int add(int a, int b)
+     {
+        statement(s);
+        return statement;
+     }
+     ```
+
+---
+
+## Types of Methods
+
+1. **Predefined methods**
+   - The methods which are developed and provided by sun microsystems are called as predefined methods.
+   - Examples: read(), readLine(), charAt(), equals(), toString()
+
+2. **Userdefined methods**
+   - The methods which are developed by the programmer are called as user defined methods.
+   - Examples: add(), sub(), mul(), work(), show(), display()
+
+### Real-time Example
+- `println()` is a predefined method and `calculateSalary()` is a userdefined method in a payroll system.
+
+### Application
+- Predefined methods save time, while userdefined methods represent business rules.
+
+---
+
+## Categories of Methods
+
+1. **A method without parameters or arguments and without return statement**
+   ```java
+   public void add()
+   {
+   }
+   ```
+
+2. **A method without parameters or arguments and with return statement**
+   ```java
+   public int add()
+   {
+      return value;
+   }
+   ```
+
+3. **A method with parameters or arguments and without return statement**
+   ```java
+   public void add(int a, int b)
+   {
+   }
+   ```
+
+4. **A method with parameters or arguments and with return statement**
+   ```java
+   public int add(int a, int b)
+   {
+      return statement;
+   }
+   ```
+
+### Real-time Example
+- A `login()` method may take username and password, while a `getBalance()` method may return a value without parameters.
+
+### Application
+- Different method categories are used depending on whether input or output is needed.
+
+---
+
+## Types of Methods in Java
+
+1. **Instance methods**
+   i. Mutator or setter methods
+   ii. Accessor or getter methods
+2. **Static methods**
+3. **Factory methods**
+   i. Instance factory methods
+   ii. Static factory methods
+
+### Instance Methods
+
+**What is instance method?**
+- A method which is not declared using static keyword and which requires object to call is called as instance method.
+- Instance method is also called as non-static method.
+- Instance methods are stored in jvm's method area at the time of object is created.
+- Instance methods belong to object.
+- Instance method can access instance variables of the same class directly.
+- Instance methods can access static variables of the same class directly.
+
+**Syntax:** `objectName.instanceMethodName();`
+
+#### Real-time Example
+- `deposit()` and `withdraw()` methods in a bank account object.
+
+#### Application
+- Used when behavior depends on object state.
+
+**Note:** If we want to perform any operations on instance variables then use instance methods.
+
+**Example:**
+```java
+class One
+{
+   int a = 10;   //instance variable
+   static int b = 20;   //static variable
+
+   public void methodOne()   //instance method or non-static method
+   {
+      System.out.println("from methodOne");
+      System.out.println(a);  //10
+      System.out.println(b);  //20
+   }
+}
+
+One o = new One();
+o.methodOne();
+```
+
+### Mutator or Setter Methods
+
+- Mutator or setter methods are instance methods and they are used to set or modify the values of instance variables.
+
+### Accessor or Getter Methods
+
+- Accessor or getter methods are instance methods and they are used to get or access the values of instance variables.
+
+**Note:** Mutator or setter methods and accessor or getter methods are called as setters and getters.
+
+### Static Methods
+
+**What is static method?**
+- A method which is declared by using static keyword and which does not require object to call is called as static method.
+- Static methods are stored in jvm's method area at the time of class loading or loading the class.
+- Static methods belong to class.
+- Static method cannot access instance variables of the same class directly.
+- Static method can access static variables of the same class directly.
+
+**Syntax:** `ClassName.staticMethodName();` (recommended) or `objectName.staticMethodName();`
+
+#### Real-time Example
+- `Math.max()`, `Math.sqrt()`, or a utility method like `Utility.formatDate()`.
+
+#### Application
+- Used for common operations that do not need object state.
+
+**Note:** If we want to perform any operations on static variables use static methods.
+
+**Example:**
+```java
+class Two
+{
+   int a = 10;   //instance variable
+   static int b = 20;   //static variable
+
+   public static void methodTwo()   //static method
+   {
+      System.out.println("from methodTwo");
+      System.out.println(a);   //c.e
+      System.out.println(b);   //20
+   }
+}
+```
+
+**When should we declare the method as static?**
+- If we want to call the method of the class without creating the object then we should declare the method as static.
+
+---
+
+## Factory Methods
+
+- **Factory** means which creates something
+
+**What is factory class?**
+- A class which contains factory method is called as factory class.
+
+**What is factory method?**
+- A method which creates and returns the object of another class is called as factory method.
+- If the factory method is not declared using static keyword then it is called as instance factory method and to call instance factory method we need factory class object.
+- If the factory method is declared by using static keyword then it is called as static factory method and to call the static factory method we no need factory class object we can call static factory method by using factory class name directly.
+
+**Notes:**
+1. If the procedure to create object to the class by using new operator is difficult in this case we should go for factory method to create object to the class.
+2. Factory method creates and returns the object of the class by hiding the complexities in creating object to the class.
+
+### Example 1: Instance Factory Method
+
+```java
+class Car
+{
+   int regno = 12345;
+
+   public void drive() {
+      System.out.println("driving");
+   }
+}
+
+class CarFactory   //factory class
+{
+   public Car createCar()   //instance factory method
+   {
+      Car c = new Car();
+      return c;
+   }
+}
+
+public class InstanceFactoryMethodExample
+{
+   public static void main(String[] args)
+   {
+      CarFactory cf = new CarFactory();
+      Car c = cf.createCar();
+      System.out.println(c);
+      System.out.println(c.regno);
+      c.drive();
+   }
+}
+```
+
+### Example 2: Static Factory Method
+
+```java
+class Car
+{
+   int regno = 12345;
+
+   public void drive() {
+      System.out.println("driving");
+   }
+}
+
+class CarFactory    //factory class
+{
+   public static Car createCar()    //static factory method
+   {
+      Car c = new Car();
+      return c;
+   }
+}
+
+public class StaticFactoryMethodExample
+{
+   public static void main(String[] args)
+   {
+      Car c = CarFactory.createCar();
+      System.out.println(c);
+      System.out.println(c.regno);
+      c.drive();
+   }
+}
+```
+
+---
+
+## Pre-defined Factory Methods
+
+### java.lang Package
+
+- **Object:** It is a class available in java.lang package
+- **Class:** It is a class available in java.lang package
+
+### Real-time Example
+- Using `Object` to hold a common reference in framework code and `Class` to inspect a loaded type at runtime.
+
+### Application
+- These predefined factory-related classes are useful for reflection, runtime type checks, and dynamic object creation.
+
+### Object
+
+- It is a class available in java.lang package.
+- In java, every class has Object as a super class (or) Object is the super class for every class.
+
+#### Real-time Example
+- A `String`, `Student`, or `Car` object ultimately inherits `Object` methods like `toString()` and `equals()`.
+
+#### Application
+- Used when working with common APIs that accept any Java object.
+
+**Notes:**
+1. As a sub class is sub class type as well as super class type so every class is Object type because every class has Object as a super class.
+2. Using Object class reference variable we can hold any class object because every class is Object type.
+
+### Class
+
+- It is a class available in java.lang package.
+- Class class object stores the information of other class.
+- Information of class means class name, super class name, variable name, method name.
+
+#### Real-time Example
+- Frameworks use `Class` to load plugins, inspect annotations, or create objects dynamically.
+
+#### Application
+- Used in reflection, dependency injection, testing frameworks, and dynamic module loading.
+
+**Methods:**
+```
+java.lang.Class
+|- public static Class forName(String className)
+|- public Object newInstance()
+```
+
+#### forName()
+
+- It is a static factory method available in Class class.
+- forName() loads the class explicitly in jvm's method area
+- After loading the class forName() creates Class class object
+- After creating the Class class object forName() stores the information of loaded class in Class class object
+- forName() returns Class class object.
+
+**Syntax:**
+```java
+public static Class forName(String className) throws ClassNotFoundException
+```
+
+#### newInstance()
+
+- It is an instance factory method available in Class class.
+- newInstance() takes the name of the loaded class from Class class object
+- After taking the name of the loaded class from Class class object newInstance() creates loaded class object
+- After creating loaded class object newInstance() stores loaded class object in Object class reference variable
+- newInstance() returns loaded class object as Object type.
+
+**Syntax:**
+```java
+public Object newInstance() throws IllegalAccessException, InstantiationException
+```
+
+### Can we create object to a class without using new operator?
+
+**Answer:** Yes, we can create object to a class without using new operator and to create object to a class without using new operator we have to follow 2 steps.
+
+**Step 1:** Load the class explicitly in jvm's method area by using forName() factory method
+
+**Step 2:** Create object to the loaded class whose information is available in Class class object by using newInstance() factory method
+
+**Note:** We can create object to a class without using new operator that is by using forName() and newInstance() factory methods.
+
+### Example: Creating Object without new Operator
+
+```java
+class Employee
+{
+   int id = 1;
+   String name = "john";
+
+   public void work() {
+      System.out.println("working");
+   }
+}
+
+public class Test
+{
+   public static void main(String[] args) throws Exception
+   {
+      Class c = Class.forName("Employee");
+      Object o = c.newInstance();
+      Employee e = (Employee)o;
+      System.out.println(e);
+      System.out.println(e.id + " - " + e.name);
+      e.work();
+   }
+}
+```
+
+---
+
+## java.util.Calendar
+
+- **Calendar:** Abstract class available in java.util package
+
+### Real-time Example
+- Setting a meeting date, invoice due date, or exam timetable using calendar values.
+
+### Application
+- Used for date and time calculations, scheduling, and date-based business rules.
+
+**Method:**
+```
+java.util.Calendar
+|- public static Calendar getInstance()
+```
+
+**Example:**
+```java
+// Calendar is an abstract class so we cannot create object directly
+Calendar cal = new Calendar();  //error
+
+// Instead use getInstance() factory method
+Calendar cal = Calendar.getInstance();
+```
+
+---
+![My project screenshot](./images/OOPS-Concepts.png)
+
+
+## Constructors
+
+**What is a constructor?**
+
+- A constructor is a special method which is called by jvm automatically at the time of creating the object to initialize instance variables.
+
+**Purpose:** The purpose of constructor is to initialize instance variables.
+
+### Real-time Example
+- Creating a `Customer` object with name, id, and balance already set through a constructor.
+
+### Application
+- Used to ensure every object starts in a valid state.
+
+### Rules for Writing Constructor
+
+1. Constructor name must be same as classname and ends with parenthesis
+2. Constructor cannot have return type
+3. Constructor can have access modifier like public, private, protected
+4. Constructor may or may not have parameters or arguments
+5. Constructor must have body
+6. Constructor cannot have return satement
+
+### Types of Constructors
+
+1. **Zero parameterized constructor** (zero argument constructor)
+2. **Parameterized constructor** (argument constructor)
+
+- A constructor which has 0 parameters is called as zero parameterized constructor or zero argument constructor.
+- A constructor which has 1 or more parameters is called as parameterized constructor or argument constructor.
+
+### Default Constructor
+
+**What is default constructor?**
+- If we dont write any constructor in a class then java compiler at the time of compilation writes one constructor such constructor is called as default constructor.
+- Default constructor is a zero parameterized constructor.
+- If we write any constructor in a class java compiler will not write default constructor.
+
+### Constructor Overloading
+
+**What is constructor overloading?**
+- Writing two or more constructors in the same class with different parameters is called as constructor overloading and such constructors are called as overloaded constructors.
+
+**Difference in parameters:**
+- Number of parameters
+- Type of parameters
+- Order of parameters
+
+**Example:**
+```java
+class One
+{
+   public One() {
+   }
+
+   public One(int i) {
+   }
+
+   public One(float j) {
+   }
+
+   public One(int i, float j) {
+   }
+
+   public One(float i, int j) {
+   }
+}
+```
+
+### Constructor Examples
+
+#### Case 1: No Constructor Written
+
+```java
+class One
+{
+}
+
+One obj1 = new One();   //it works (default constructor)
+One obj2 = new One(10);   //error
+```
+
+#### Case 2: Zero Parameterized Constructor Written
+
+```java
+class One
+{
+   public One() {
+   }
+}
+
+One obj1 = new One();  //it works
+One obj2 = new One(10);   //error
+One obj3 = new One(2.5);  //error
+```
+
+#### Case 3: Parameterized Constructor Written
+
+```java
+class One
+{
+   public One(int i) {
+   }
+}
+
+One obj1 = new One(10);  //it works
+One obj2 = new One();    //error
+One obj3 = new One(2.5);   //error
+One obj4 = new One(10, 20);   //error
+```
+
+#### Case 4: Multiple Constructors
+
+```java
+class One
+{
+   public One() {
+   }
+
+   public One(double a) {
+   }
+
+   public One(int a, float b) {
+   }
+}
+
+One obj1 = new One();    //it works
+One obj2 = new One(2.5);   //it works
+One obj3 = new One(10);    //it works
+One obj4 = new One(10, 20);   //it works
+One obj5 = new One(10, 2.5);   //error
+One obj6 = new One(10, 2.5f);   //it works
+One obj7 = new One(true);    //error
+One obj8 = new One(10, 20, 30);   //error
+```
+
+---
+
+## Static Block
+
+- A block which is declared by using static keyword is called as static block.
+
+### Real-time Example
+- Loading configuration values, reading environment settings, or initializing shared constants once when the class loads.
+
+### Application
+- Used for one-time initialization tasks that should happen before any object is created.
+
+**Syntax:**
+```java
+static  //static block
+{
+}
+```
+
+**Characteristics:**
+- Static block is executed only once at the time of class loading or loading the class.
+- If we want to execute any code only once immediately after the class is loaded use static block.
+- Static block is used to initialize static variables of the class.
+- Static block is executed before the main method.
+- Static block cannot access instance variables of the same class directly.
+
+---
+
+## Execution Order in Java
+
+```java
+class One
+{
+   int i;  //instance variable             #4
+
+   static int j;  //static variable        #1
+
+   {                   //instance block      #5
+   }
+
+   static {   //static block               #2
+      j = 10;
+   }
+
+   public One() {  //constructor           #6
+      i = 20;
+   }
+
+   public void methodOne() {   //instance method      #7
+   }
+
+   public static void methodTwo() {   //static method     #3
+   }
+}
+
+One obj = new One();
+```
+
+**Execution Order:**
+
+### Real-time Example
+- During application startup, class loading happens first and object creation happens later when the object is needed.
+
+### Application
+- Helps predict initialization order when debugging object creation and startup logic.
+
+1. When we create object of class One, first jvm loads class One in jvm's method area
+2. At the time of classloading or loading the class:
+   - First static variables are created in method area
+   - Then static block is executed
+   - Then static methods are stored
+3. After classloading or loading the class jvm creates object of class One
+4. At the time of creating the object:
+   - First instance variables are created inside the object
+   - Then instance block is executed
+   - Then constructor is called to initialize instance variables
+   - Then instance methods are stored
+
+---
+
+## this Keyword
+
+- this is a keyword and a reference variable which holds the reference of current class object and points to current class object.
+- Using this keyword we can access or refer to current class object and the members of current class object.
+
+### Real-time Example
+- In a `Student` constructor, `this.name = name;` is used to assign the parameter value to the instance variable.
+
+### Application
+- Used to resolve naming conflicts and chain constructors in the same class.
+
+### Uses of this Keyword
+
+1. **Access current class instance variables**
+   - Syntax: `this.instanceVariableName;`
+
+2. **Access current class instance methods**
+   - Syntax: `this.instanceMethodName();`
+
+3. **Access current class constructors**
+   - Syntax: `this();` or `this(parameters);`
+
+4. **Access current class object**
+   - Syntax: `this`
+
+**Note:** When we call a constructor from another constructor using this keyword then this keyword must be the first statement.
+
+---
+
+## Accessing Members of Another Class
+
+- In java, a class can access the members of another class.
+- There are 2 ways using which a class can access the members of another class:
+
+1. **Inheritance**
+2. **Composition**
+
+**Usage:**
+- If a class wants to access all the members of another class use inheritance.
+- If a class wants to access few members of another class use composition.
+
+## Inheritance
+
+**What is inheritance?**
+
+- Acquiring all the properties of one class into another class is called as inheritance.
+- Inheritance establishes is-a relationship (parent child relationship) between the classes.
+- In java, to use inheritance we use extends keyword.
+
+### Real-time Example
+- A `SavingsAccount` class inheriting common behavior from an `Account` class.
+
+### Application
+- Used to reuse code and model parent-child relationships in real systems.
+
+**Example:**
+```java
+class A     //parent class or super class
+{
+   void m1() {
+   }
+   void m2() {
+   }
+}
+
+class B extends A     //child class or sub class
+{
+   void m3() {
+   }
+   void m4() {
+   }
+}
+
+B obj = new B();
+obj.m3();
+obj.m4();
+obj.m1();
+obj.m2();
+```
+
+### Type Casting by using Userdefined Datatypes
+
+```java
+//parent class or super class
+class One  //One type (super class type)
+{
+   public void m1() {
+   }
+
+   public void m2() {
+   }
+}
+
+//child class or sub class
+class Two extends One  //Two type (sub class type), One type (super class type)
+{
+   public void m3() {
+   }
+
+   public void m4() {
+   }
+}
+
+Two t = new Two();   //valid
+
+One o = new Two();   //valid
+
+One o = new One();   //valid
+
+Two t = new One();   //invalid
+```
+
+**Notes:**
+- A sub class is sub class type as well as super class type because a sub class has both sub class and super class properties.
+- A super class is super class type only but not sub class type because super class has only super class properties but not sub class properties.
+- As a sub class is sub class type as well as super class type that's why we can hold sub class object by using sub class reference variable as well as by using super class reference variable also.
+- As a super class is super class type only that's why we can hold super class object by using super class reference variable only but not using sub class reference variable.
+
+**Example:**
+```java
+class One
+{
+   public void methodOne() {
+   }
+}
+
+class Two extends One
+{
+   public void methodTwo() {
+   }
+}
+
+One o = new Two();
+o.methodOne();
+o.methodTwo();   //c.e
+```
+
+**Notes:**
+- If super class reference variable is holding sub class object then by using super class reference variable we can access only super class members but we cannot access sub class members.
+- If we want to access both sub class members and super class members we need sub class object as well as sub class reference variable.
+
+**Type Casting Example:**
+```java
+class One
+{
+   public void methodOne() {
+   }
+}
+
+class Two extends One
+{
+   public void methodTwo() {
+   }
+}
+
+One o = new Two();
+Two t = (Two)o;
+t.methodOne();
+t.methodTwo();
+```
+
+---
+
+## instanceof
+
+- instanceof operator is used to test object is an instance of a class type or not.
+
+### Real-time Example
+- Checking whether a received object is a `Student` before casting it in a school management system.
+
+### Application
+- Used for safe type checking before casting and for branching behavior based on object type.
+
+**Syntax:** `boolean b = objectName instanceof ClassName;`
+
+**Notes:**
+1. Object has type and object type is classname which is a userdefined datatype.
+2. Using instanceof operator we cannot test two different classes (types) which are not having parent child relationship that is inheritance.
+
+### java.lang.Object
+
+- It is a class available in java.lang package
+- In java, for every class Object is the super class.
+- As every class in java is a sub class of Object class that's why every class is Object type.
+
+---
+
+### Composition
+![My project screenshot](./images/composition-diagram.png)
+
+
+**What is composition?**
+- Composition is a relationship between two objects where one class object has the reference of another class object to access the members.
+- Composition establishes has-a relationship between the classes or objects.
+- In java, to use composition there is no specific but we use new operator.
+
+### Real-time Example
+- A `Car` object having an `Engine` object, or an `Order` object having a `Payment` object.
+
+### Application
+- Used when one class needs to reuse another class as a part of its state or behavior.
+
+### Example 1: Composition without Constructor
+
+```java
+class One
+{
+   int i = 10;
+
+   public void m1() {
+      System.out.println("from m1");
+   }
+
+   public void m2() {
+      System.out.println("from m2");
+   }
+}
+
+class Two
+{
+   One o;  //creating reference variable of class One as instance variable
+
+   public void m3() {
+      System.out.println("from m3");
+      o = new One();
+      o.m1();
+   }
+
+   public void m4() {
+      System.out.println("from m4");
+      o.m2();
+      System.out.println(o.i);
+   }
+}
+
+Two t = new Two();
+t.m3();
+t.m4();
+```
+
+### Example 2: Composition with Constructor
+
+```java
+class One
+{
+   int i;
+
+   public One(int i) {
+      this.i = i;
+   }
+
+   public void m1() {
+      System.out.println("from m1");
+   }
+
+   public void m2() {
+      System.out.println("from m2");
+   }
+}
+
+class Two
+{
+   One o;  //creating reference variable of class One as instance variable
+
+   public Two(One o) {
+      this.o = o;
+   }
+
+   public void m3() {
+      System.out.println("from m3");
+      o.m1();
+   }
+
+   public void m4() {
+      System.out.println("from m4");
+      o.m2();
+      System.out.println(o.i);
+   }
+}
+
+One o = new One(10);
+Two t = new Two(o);
+t.m3();
+t.m4();
+```
+
+---
+
+## Classloading and Classpath
+
+### Class and Classloading
+
+- class means .class file which contains byte code.
+
+What is classloading or loading the class?
+- Taking the .class file which contains byte code and placing inside the jvm's method area is called as classloading or loading the class.
+
+### Real-time Example
+- When you run a Java program, the JVM loads `Main` and all required library classes before execution starts.
+
+### Application
+- Used to locate and load compiled classes from the correct folders or jars at runtime.
+
+### Classloaders
+
+What are classloaders?
+- Classloaders are special java classes developed by sun microsystems.
+- Classloaders are responsible to load the classes from some directory location in the computer into jvm's memory.
+
+There are 3 classloaders:
+
+1. bootstrap classloader
+   - jre\lib\rt.jar
+2. extension classloader
+   - jre\lib\ext
+3. system/app classloader
+   - -cp or -classpath
+   - set classpath
+
+~~~
+api --> predefined classes and interfaces --> jre\lib\rt.jar
+                                       |
+                                 bootstrap classloader
+
+version to version --> new features --> new classes --> extension classes
+                                                |
+                                             jar files
+                                                |
+                                             jre\lib\ext
+                                                |
+                                         extension classloader
+~~~
+
+- system/app classloader loads the classes from classpath location.
+
+### Classpath Basics
+
+- class means .class file
+- path means location
+- classpath means .class file location
+
+What is classpath?
+- Classpath is an environment variable or a system variable which used by compiler and jvm to search for the location of .class files.
+- Compiler and jvm search for .class files in the classpath and default classpath is current directory.
+- If the .class files are not available in the current directory which is default classpath then we have to change or set the classpath.
+
+### Ways of Setting Classpath
+
+There are 3 ways to set classpath:
+
+1. command level
+2. command prompt level
+3. operating system level
+
+#### Command Level
+
+- If we set the classpath command level then it will be available until we run the command, so whenever we run the command we have to set the classpath.
+
+Syntax:
+
+~~~
+javac -cp directory_location ClassName.java
+            (or)
+javac -classpath directory_location ClassName.java
+
+java -cp directory_location ClassName
+           (or)
+java -classpath directory_location ClassName
+~~~
+
+#### Command Prompt Level
+
+- If we set the classpath command prompt level then it will be available until command prompt is running. If we close the command prompt then classpath is lost.
+
+Syntax:
+
+~~~
+set classpath=directory_location
+~~~
+
+#### Operating System Level
+
+- If we set the classpath operating system level it becomes permanent.
+
+### Notes
+
+- javac and java are tools.
+- A tool takes options which are also called as switches.
+- Switches start with hyphen symbol.
+- Switches provide additional information to a tool.
+- If we want to set the classpath command level we have to use either -cp or -classpath switches.
+- If we want to set the classpath command prompt level we have to use set windows command.
+# Inner classes
+
+A class defined inside another class is called an inner (nested) class.
+
+Types:
+
+1. Member inner class
+2. Static inner class
+3. Local inner class
+4. Anonymous inner class
+
+### Member inner class
+
+- Declared as a member of the outer class.
+- To create an instance outside the outer class: `Outer.Inner obj = outer.new Inner();`
+- If private, it can only be instantiated inside the outer class.
+
+### Static inner class
+
+- Declared `static` inside an outer class.
+- It cannot access instance members of the outer class directly.
+- Instantiate with: `Outer.StaticInner obj = new Outer.StaticInner();`
+
+### Local inner class
+
+- Declared inside a method or constructor and only visible within it.
+
+### Anonymous inner class
+
+- A class without a name used to create a single object with specific behavior.
+
+---
+
+# OOP Concepts
+
+Object-oriented programming (OOP) concepts:
+
+- `class`, `object`, data hiding, abstraction, encapsulation, inheritance (is-a), composition (has-a), polymorphism
+
+---
+
+# Inheritance
+
+Inheritance creates new classes from existing ones (IS-A relationship) using the `extends` keyword.
+
+Notes:
+
+- Prefer creating objects of subclasses (they contain both subclass and superclass members).
+- When a subclass is instantiated, the JVM calls the subclass constructor, which implicitly calls the superclass no-arg constructor (`super()`) unless you call another `super(...)`.
+- A subclass instance can be assigned to a superclass reference, but only superclass members are accessible through that reference.
+
+Example:
+
+```java
+class One { }
+class Two extends One { }
+
+Two t = new Two(); // valid
+One o = new Two(); // valid
+```
+
+To access subclass-specific members, cast the reference:
+
+```java
+One a = new B();
+// a.m2(); // compile-time error
+B b = (B) a;
+b.m2();
+```
+
+If the superclass has only a parameterized constructor, the subclass must explicitly call it using `super(...)`.
+
+### `super` keyword
+
+- Access superclass instance variables: `super.var`.
+- Call superclass methods: `super.method()`.
+- Call superclass constructors: `super()` or `super(args)`.
+
+---
+
+# Types of inheritance
+
+- Single inheritance (simple, multilevel, hierarchical)
+- Java does not support multiple class inheritance directly; use interfaces for multiple inheritance of type.
+
+---
+
+# Polymorphism
+
+Polymorphism means many forms. In Java:
+
+- Compile-time (static) polymorphism: method overloading, method hiding.
+- Runtime (dynamic) polymorphism: method overriding.
+
+Method signature = method name + parameter list (return type and modifiers not part of signature).
+
+Example of overloading:
+
+```java
+void m1() {}
+void m1(int i) {}
+void m1(float a, int b) {}
+```
+
+Example of overriding:
+
+```java
+class Parents {
+  public void study() { System.out.println("mba"); }
+}
+class Son extends Parents {
+  public void study() { System.out.println("engineering"); }
+}
+```
+
+Covariant return types allow an overriding method to return a subtype of the overridden method's return type (applicable to reference types, not primitives).
+
+Method hiding occurs when a subclass declares a static method with the same signature as in the superclass.
+
+---
+
+# Abstract classes
+
+- `abstract` marks classes or methods as incomplete.
+- An abstract method has no body and must be implemented by concrete subclasses.
+- An abstract class can contain both abstract and non-abstract methods, fields, constructors, and static members.
+
+Example:
+
+```java
+abstract class One {
+  public void methodOne() {}
+  public abstract void methodThree();
+}
+```
+
+- You cannot instantiate an abstract class, but you can hold subclass objects using an abstract class reference.
+
+Notes:
+
+1. If a method parameter type is an abstract class, pass a subclass object when calling.
+2. If a method's return type is an abstract class, return an object of a concrete subclass.
+# Interfaces
+
+## Meaning
+
+- Any service requirement specification (SRS) is considered an interface.
+- From the service provider perspective, an interface defines the features or services being offered.
+- From the client perspective, an interface defines the features or services being expected.
+- Any contract between two people is called an interface.
+- An interface shows only the features or services that are being offered and expected.
+- An interface does not show implementation, so it contains only method headers or method prototypes, not method bodies.
+- Such methods are called abstract methods, so an interface contains only abstract methods.
+- A class which contains only abstract methods is called a 100% incomplete class, and a 100% incomplete class is called an interface.
+
+## What Is an Interface?
+
+- Any service requirement specification, a contract between two people, or a 100% incomplete class is called an interface.
+
+## Creating an Interface
+
+```java
+modifier interface InterfaceName {
+	// abstract methods
+}
+```
+
+- In Java, we use the `interface` keyword to create an interface.
+
+### Notes
+
+1. By default, all methods in an interface are `public` and `abstract`.
+2. JVM cannot create an object for an interface because an interface is a 100% incomplete class.
+
+## Using an Interface
+
+- If we cannot create an object for an interface, then to use it we create an implementation class using the `implements` keyword.
+- In the implementation class, we must override and provide implementation to all abstract methods of the interface.
+- If we do not override and implement even one abstract method, the implementation class becomes an abstract class.
+
+## What Is an Implementation Class?
+
+- A class which provides implementation to all the abstract methods of an interface is called an implementation class.
+- Implementation means writing the method body.
+- If all abstract methods are implemented, the implementation class becomes a concrete class and we can create an object of it.
+- To create an implementation class, we use the `implements` keyword.
+
+### More Notes
+
+3. We cannot create an object of an interface, but we can create an object of its implementation class.
+4. We can create a reference variable to an interface and use it to hold an implementation class object.
+5. Like in inheritance, a subclass is both a subclass type and a superclass type; similarly, in interfaces, an implementation class is both an implementation class type and an interface type.
+6. We can write variables inside an interface, and when declaring them we must initialize them.
+7. By default, all variables in an interface are `public`, `static`, and `final`.
+8. The purpose of writing variables inside an interface is to define static constant variables.
+9. Interface variables can be accessed directly in the implementation class and outside it by using the interface name.
+10. We cannot write a constructor inside an interface.
+11. The only modifiers allowed for methods of an interface are `public` and `abstract`.
+12. The only modifiers allowed for variables of an interface are `public`, `static`, and `final`.
+
+---
+
+## Abstraction
+
+- Interface is one of the abstraction mechanisms in Java, which means we can achieve abstraction using interfaces.
+- Using an interface, we achieve 100% abstraction.
+- If we want to hide the complete implementation, we should use an interface.
+- If we want partial abstraction or if we do not want to hide the complete implementation, we should use an abstract class.
+- If we want 100% abstraction or if we want to hide the complete implementation, we should use an interface.
+
+---
+
+## Interface Reference Use Cases
+
+1. If a method or a constructor has an interface reference variable as a parameter, then while calling it we must pass an implementation class object.
+2. If the return type of a method is an interface, then such a method returns the object of an implementation class as interface type.
+
+## Marker Interfaces
+
+- A interface which contains zero abstract methods is called a marker interface.
+- In Java, several predefined marker interfaces are available.
+
+### Examples
+
+- Cloneable
+- Serializable
+- RandomAccess
+
+### Meaning
+
+- By default, an object of a class does not have some abilities.
+- Marker interfaces act as metadata for the JVM, which means using marker interfaces we can give information to add some ability to an object of a class.
+
+### Example
+
+```java
+class Employee implements Cloneable {
+	int id = 1;
+	String name = "john";
+	double salary = 1000.0;
+
+	public Object clone() throws CloneNotSupportedException {
+		Object o = super.clone();
+		return o;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) throws CloneNotSupportedException {
+		Employee e1 = new Employee();
+		Object o = e1.clone();
+		Employee e2 = (Employee) o;
+
+		System.out.println(e1.hashCode());
+		System.out.println(e2.hashCode());
+
+		System.out.println("e1 == e2 : " + (e1 == e2));
+
+		System.out.println(e1.id + " - " + e1.name + " - " + e1.salary);
+		System.out.println(e2.id + " - " + e2.name + " - " + e2.salary);
+	}
+}
+```
+
+### Syntax
+
+```java
+protected Object clone() throws CloneNotSupportedException
+```
+
+---
+
+## Lambda Expression
+
+- Lambda expression is a feature added in Java 8.
+- Lambda expression is an anonymous function.
+- A function which does not have a name is an anonymous function.
+
+### Example Without Lambda
+
+```java
+public void methodOne() {
+}
+```
+
+### Example With Lambda
+
+```java
+() -> {
+	System.out.println("from methodOne");
+};
+```
+
+- The `->` arrow symbol represents the lambda expression.
+- Lambda expression is based on functional interface, so we can use lambda expressions only with functional interfaces.
+- To call a lambda, we need a functional interface.
+- Using lambda expression, we can refer to the method of a functional interface.
+- If an interface contains only one abstract method, it is called a functional interface.
+- If we use lambda expression with an interface that contains more than one abstract method, the compiler gives an error.
+
+### Example
+
+```java
+interface One {
+	void methodOne();
+}
+
+public class Test {
+	public static void main(String[] args) {
+		One o = () -> {
+			System.out.println("from methodOne");
+		};
+
+		o.methodOne();
+	}
+}
+```
+
+### Inline Lambda
+
+```java
+interface One {
+	void methodOne();
+}
+
+class Test {
+	public static void main(String[] args) {
+		One o = () -> System.out.println("from methodOne");
+
+		o.methodOne();
+	}
+}
+```
+
+### Advantages of Lambda Expression
+
+1. Lambda expression provides a clear and concise way of writing code.
+2. Lambda expression reduces the length of code.
+3. We can achieve functional programming.
+
+## Functional Interface
+
+- An interface which contains only one abstract method is called a functional interface.
+- A functional interface can have non-abstract methods also in the form of `static` and `default`.
+- An interface which contains only one abstract method and can have non-abstract methods in the form of `static` and `default` is also called a functional interface.
+- The only condition is that it must have only one abstract method.
+- From Java 8 onwards, we can write non-abstract methods inside interfaces in the form of `static` and `default`.
+
+### Example 1
+
+```java
+interface One {
+	void methodOne();
+}
+```
+
+### Example 2
+
+```java
+interface One {
+	void methodOne();
+
+	static void methodTwo() {
+	}
+
+	default void methodThree() {
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		One o = () -> System.out.println("from methodOne");
+
+		o.methodOne();
+		o.methodThree();
+
+		One.methodTwo();
+	}
+}
+```
+
+### Notes
+
+1. A static method in an interface helps provide security by not allowing the implementation class to override the method.
+2. Java 8 introduces a new concept called default method.
+3. A method declared using the `default` keyword is called a default method, and it can be written only inside an interface.
+![My project screenshot](./images/new-operator.png)
+
+### Lambda Parameter Examples
+
+#### Example 1
+
+```java
+interface One {
+	void methodOne(int a);
+}
+
+public class Test {
+	public static void main(String[] args) {
+		One o = (int a) -> System.out.println(a);
+
+		o.methodOne(10);
+	}
+}
+```
+
+#### Example 2
+
+```java
+interface One {
+	void methodOne(int a, int b);
+}
+
+public class Test {
+	public static void main(String[] args) {
+		One o = (a, b) -> {
+			System.out.println(a);
+			System.out.println(b);
+		};
+
+		o.methodOne(10, 20);
+	}
+}
+```
+
+#### Example 3
+
+```java
+interface One {
+	int methodOne(int a, int b);
+}
+
+public class Test {
+	public static void main(String[] args) {
+		One o = (a, b) -> {
+			return a + b;
+		};
+
+		System.out.println(o.methodOne(10, 20));
+	}
+}
+```
+
+- You can also write this as `One o = (a, b) -> { return a + b; };` or `One o = (a, b) -> a + b;`.
+- When the method body has only one statement, braces can be removed.
+
+---

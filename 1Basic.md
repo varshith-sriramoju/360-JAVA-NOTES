@@ -1,0 +1,577 @@
+# Core Java
+
+## What is Java?
+
+- Java is a programming language, high level language and object oriented programming language.
+- Java is a programming language and using programming language we write programs to develop or build software or application and we use software or application to perform some task.
+- As java uses english words and it is user-friendly that's why java is called as high level language.
+
+## What is Object Oriented Programming (OOP)?
+
+Object oriented programming is a programming paradigm.
+
+### Principles of OOP
+
+1. Class
+2. Object
+3. Data Hiding
+4. Abstraction
+5. Encapsulation
+6. Inheritance
+7. Composition
+8. Polymorphism
+
+As java follows the principles of object oriented programming paradigm that's why java is called as object oriented programming language.
+
+### Java History
+
+- **Java:** Technology → Sun Microsystems → James Gosling → 1995
+- Java is a technology given by sun microsystems and developed by james gosling in 1995.
+- Every technology has api as java is a technology so java has api.
+
+## What is API?
+
+- **API** stands for Application Programming Interface
+- The predefined classes and interfaces which are developed and provided by sun microsystems in java are called as api.
+- We use api (predefined classes and interfaces) to write java programs in order to develop or build software or application.
+
+## Java Editions (Java Platforms)
+
+1. **JSE** (Java Standard Edition)
+2. **JEE** (Java Enterprise Edition)
+3. **JME** (Java Micro/Mobile Edition)
+
+Sun microsystems has given different java editions or java platforms to develop different types of applications.
+
+## Types of Applications
+
+1. Stand-alone or desktop applications
+   - GUI applications
+   - CUI applications
+2. Web applications
+3. Enterprise web applications
+4. Distributed applications
+5. Mobile applications
+6. Embedded systems
+
+### Stand-alone or Desktop Applications
+
+- The applications which runs locally on client machine such applications are called as stand-alone or desktop applications.
+- Stand-alone or desktop applications are single user applications.
+- To use stand-alone or desktop application internet is not required so without internet we can use stand-alone or desktop applications.
+- Stand-alone or desktop applications are 2 types:
+  - **GUI applications** (Graphical User Interface)
+  - **CUI applications** (Command or Character User Interface)
+- To use gui applications we no need to use any commands but to use cui applications we must have to use commands.
+- GUI applications provide graphical interface where as cui applications provide command line interface.
+- GUI applications are user-friendly than cui applications.
+
+**Examples:** text editors, calculator, calendar, media players, command prompt
+
+### Web Applications
+
+- The application which runs inside the web server is called as web application.
+- Web server runs inside server machine.
+- Web applications are multi-user applications.
+- To use the web applications internet is required.
+
+**Examples:** gmail, online tutorial websites, a company static website
+
+### Enterprise Web Applications
+
+- The large web applications which are developed for business purpose are called as enterprise web applications.
+- All enterprise web applications are web applications but every web application is not enterprise web application.
+
+**Examples:** e-commerce websites, banking websites, ticket booking websites
+
+### Distributed Applications
+
+- Two different applications which are running on two different servers and which can share business services over the network to each other are called as distributed applications.
+
+**Examples:** irctc.co.in and makemytrip.com
+
+### Mobile Applications
+
+- The applications which are developed to run on mobile devices are called as mobile applications.
+
+**Examples:** mobile apps
+
+### Embedded Systems
+
+- Embedded systems is a combination of hardware and software, in embedded systems the software is developed and embedded in a hardware.
+
+**Examples:** computer, television
+
+### Platform Mapping
+
+```
+JSE  →  client side programming
+    ├─ stand-alone or desktop applications (gui and cui applications)
+
+JEE  →  server side programming
+    ├─ web applications, enterprise web applications, distributed applications
+
+JME  →  micro programming
+    ├─ mobile applications, embedded systems
+```
+![My project screenshot](./images/networking.png)
+---
+
+## Features of Java (Java Buzzwords)
+
+1. Simple
+2. Object oriented
+3. Robust
+4. Platform independent
+5. Portable
+6. Architectural neutral
+7. Secure
+8. Multi-threaded
+9. Distributed
+10. High performance
+11. Interpreted
+12. Dynamic
+
+### Simple
+
+- Java follows the similar syntaxes of c and c++ languages which makes learning java simple.
+- All the confusing concepts of c and c++ languages like pointers, goto statement and multiple inheritance are eliminated from java to make java simple.
+
+### Object Oriented
+
+- In java, which is an object oriented programming language everything is represented as object that's why java is called as object oriented.
+
+### Robust (Strong)
+
+- Java has better memory management mechanism
+- Java has better exception handling mechanism
+- In java, programmer is responsible for only allocating the memory but programmer is not responsible for deallocating the memory, the memory deallocation is automatically performed by garbage collector so java has automatic garbage collection.
+- In java, sun microsystems has developed and provided api (pre-defined classes and interfaces) to work with exception handling that's why java has better exception handling mechanism.
+
+**Memory Management:** Allocating and deallocating the memory
+
+Types:
+1. Static memory allocation - ex: declaring variable, declaring array
+2. Dynamic memory allocation - ex: malloc(), calloc(), realloc(), free()
+
+### Platform Independent
+![My project screenshot](./images/platform-independent.png)
+
+- After we compile the java program, java compiler generates .class file with byte code, .class file is not specific to any operating system and byte code is also not specific to any processor
+- This is called as **WORA** (Write Once Run Anywhere)
+- That's why java is called as platform independent.
+
+### Portable
+
+- After compilation java compiler generates the .class file which can be carried on any operating system this is why java is portable.
+
+### Architectural Neutral
+
+- In java, the size of primitive datatype int is same that is 4 bytes irrespective of micro processor architecture that's why java is as architectural neutral.
+
+### Secure
+
+- Before executing the byte code, jvm loads the class which contains byte code in jvm's method area then byte code verification is performed to check whether the byte code which is loaded is valid or invalid
+- If the byte code is valid then only byte code is executed by the jvm inside jre and if the byte code is invalid then jvm will not execute the byte code, jvm gives error
+- This is why java is secure.
+
+### Multi-threaded
+
+- In java, sun microsystems has developed and provided api (pre-defined clasess and interfaces) to develop multi-threaded applications that's why java is called as multi-threaded.
+
+### Distributed
+
+- Sun microsystems has provided several distributed technologies in java like corba, rmi, ejb to develop distributed applications that's why java is called as distributed.
+
+### High Performance
+
+- In java, along with interpreter sun microsystems has developed and provided JIT compiler (Just In Time compiler) to improve performance
+- As java uses interpreter and JIT compiler that's why java is high performance.
+
+### Interpreted
+
+- Java uses interpreter as a translator that's why java is called as interpreted.
+
+### Dynamic
+
+- In java, classloaders load the classes dynamically at runtime that's why java is called as dynamic.
+
+---
+![My project screenshot](./images/computer-languages.png)
+
+## What is a Class?
+
+- Anything which does not exist physically which is an imagination about an object is called as class.
+- As a class is an imagination about an object so a class will not occupy memory or space.
+- A class is a blueprint for creating object.
+- A class represents the structure of the object.
+- A class is the logical form of the object.
+- A class contains variables and methods.
+- As variables and methods are available in a class that's why variables and methods are called as members of the class.
+- Variables are used to hold data that's why variables are called as data members of the class
+- Methods use data members to perform operations that's why methods are called as member methods of the class.
+- A class will not have state and behaviours but a class represents the state and behaviours of an object.
+- A class is a userdefined datatype in java so creating a class means creating a userdefined datatype
+- A userdefined datatype allows a variable to store multiple values which can be homogeneous or heterogeneous.
+
+
+## What is an Object?
+
+- Anything which exists physically in this real world is called as object.
+- As an object is existing physically so an object will occupy memory or space.
+- An object is the physical form of the class.
+- An object is called as an instance (physical form) of the class.
+- Object has state and behaviours, what an object posses or owns represent state
+- Using the state what operations an object performs represents behaviours.
+- In java, variables represent state and methods represent behaviours.
+
+## Real Word Ex & Appli
+- Class : Car
+- Obj : Swift, Santro, etc
+
+**Notes:**
+1. We can create a class without creating an object but we cannot create object without creating a class so to create object class is mandatory.
+2. We can create multiple objects of same class and all objects are called as instances of same class.
+
+---
+
+## JDK vs JRE vs JVM
+
+- **JDK** stands for Java Development Kit.
+  - JDK provides an environment in the computer to develop (compile) and run java programs.
+
+- **JRE** stands for Java Runtime Environment.
+  - JRE provides an environment in the computer only to run java programs.
+
+- **JVM** stands for Java Virtual Machine.
+  - JVM reads the byte code, converts into binary code line by line and executes.
+
+**Relationship:**
+```
+JDK = JRE + development tools
+JRE = JVM + class libraries
+```
+
+- Java compiler is a development tool, development tool is an executable file or binary file so javac.exe is java compiler.
+- Location: `c:\program files\java\jdk1.8\bin\javac.exe` (java compiler)
+
+### Command Prompt
+
+```
+c:\users\xyz>javac -version
+```
+
+- Operating system searches for javac.exe in c:\users\xyz which is current directory as it is not available so it will not work
+- To make it work we have to change the current directory
+
+```
+c:\program files\java\jdk1.8\bin>javac -version
+```
+
+- We can run javac.exe only from bin directory but we cannot run javac.exe from any directory
+- If we want to run javac.exe from any directory we have to set the path.
+
+### Path
+
+**What is path?**
+- Path is an environment variable or a system variable which is used by operating system to search for the location of executable files.
+- By default operating system searches for executable files in current directory
+- If executable files are not available in current directory then we have to set the path because operating system uses path which is environment variable or system variable to search for the location of executable files.
+
+**Ways of setting path**
+
+1. Command prompt level
+2. Operating system level
+
+**Note:** If we want to set the path command prompt level then we have to use set windows command.
+
+#### Command Prompt Level
+
+- If we set the path command prompt level then it will be available until the command prompt is running
+- If we close the command prompt then path will be lost.
+
+**Syntax:** `set path=location_of_executable_files`
+
+#### Operating System Level
+
+- If we set the path operating system level then it becomes permanent.
+
+---
+
+## Writing First Java Program
+
+**3 things are required in the computer before writing the java program:**
+
+1. JDK software
+2. Java IDE (Integrated Development Environment)
+3. Workspace
+
+**Java IDEs:**
+- Eclipse
+- NetBeans
+- IntelliJ Idea
+- MyEclipse
+- STS
+
+**For Beginners** (to learn internals use text editor):
+- Notepad
+- Notepad++
+- EditPlus
+
+**Workspace:** A directory in the computer where we place all java programs is called as workspace.
+
+**Extension:** The extension of a java program must be .java. A file which ends with .java extension is called as java file.
+
+### Comments
+
+Comments are non-executable statements present in the java program.
+
+**Uses:**
+- Comments are used to write documentation in the program.
+- Comments make the program more readable and easy to understand.
+
+**Types of comments:**
+
+1. **Single line comments:** `//this is single line comment`
+
+2. **Multi line comments:**
+   ```
+   /*
+       this is multi line comments
+   */
+   ```
+
+3. **Documentation comments:**
+   ```
+   /**
+       this is documentation comments
+   */
+   ```
+
+**Why do we use documentation comments?**
+- If we want to create our own api document we use documentation comments.
+- API means set of packages and whatever are available inside packages are api.
+- Package contains classes, interfaces, methods, variables, constructors
+
+**API Structure:**
+```
+API
+├─ predefined classes and interfaces
+   ├─ java programs
+      ├─ software/application
+```
+
+**API Location:** `C:\Program Files\Java\Jdk1.8\jre\lib\rt.jar`
+
+**API Document:**
+- Sun microsystems has developed api document and api document contains only the names of predefined classes and interfaces.
+- Predefined classes and interfaces are physically available in rt.jar.
+- To know the names of predefined classes and interfaces we have to use api document.
+
+**Documentation Types:**
+- **core java** → jse api document
+- **advance java** → jee api document
+
+### Creating a Class
+
+**Syntax:**
+```
+modifier class ClassName
+{
+   //variables and methods
+}
+```
+
+**Notes:**
+- Here modifier, variables and methods are optional.
+- In java, class is a keyword and it is used to create class.
+- Class name and the file name must be same.
+- Execution of a java program starts from main method.
+- In java, main method has a standard signature: `public static void main(String args[])`
+- Main method must have body.
+- In java, first letter of the classname should be capital.
+- String and System are predefined classes.
+- Sun microsystems has placed String and System classes in java.lang package.
+
+### Package and Naming Collision
+
+```
+developer-1                  pkg1.Employee
+-----------
+package pkg1;
+
+class Employee
+{
+}
+
+developer-2
+-----------
+package pkg2;                pkg2.Employee
+
+class Employee
+{
+}		             naming collision or naming conflict problem
+
+developer-3
+-----------
+package pkg3;                pkg3.Employee
+
+class Employee
+{
+}
+
+developer-4
+-----------
+package pack1.pack2;         pack1.pack2.Employee
+
+class Employee
+{
+}
+
+Naming Convention:
+com.projectname.modulename.submodulename.ClassName
+```
+
+**Problem:** If multiple developers create multiple classes with the same name we get naming collision or naming conflict problem.
+
+**Solution:** Make the class name unique.
+
+**Package Usage:**
+- In java, to make the class names unique sun microsystems has provided packages.
+- Package is used to make the class name unique.
+- In java, to create a package we use package keyword.
+
+**Syntax:**
+```
+package package-name;
+package package-name.sub-package-name;
+```
+
+**Notes:**
+- Package inside the package is called as sub package.
+- Whenever we create a class, before creating the class we should create package then create the class and place the class inside the package.
+- If the class is available inside the package then we cannot use the class directly by name
+- To use the class which is available inside the package we must have to use fully qualified name of the classname.
+- Fully qualified name of the classname means `package-name.ClassName`.
+
+### Import
+
+**What is import?**
+- Import is a keyword and it is used to import the classes & interfaces of a package in the java program.
+- If we import the package then we no need to use fully qualified name of the class name that is `packageName.className`, we can use the class name directly.
+
+**Syntax:**
+```
+import package-name.sub-package-name.ClassName;  //explicit import
+import package-name.sub-package-name.*;  //implicit import
+```
+
+**Note:** `java.lang` package is the default package in every java program.
+- If we dont import any package in the java program then java compiler at compile time automatically imports java.lang package.
+- Java compiler compiles java program and jvm runs java program.
+- `javac` is a command and tool which is used to run java compiler so javac means java compiler.
+
+### Compiling and Running Java Programs
+
+**Compiling Java Program:**
+```
+Syntax: javac ClassName.java
+```
+
+- After compilation java compiler generates .class file (class file) which contains byte code.
+- Byte code is special code and only jvm understands byte code.
+
+**Running/Executing Java Program:**
+```
+Syntax: java ClassName
+```
+
+- The above commands we have to run in command prompt.
+- Java is a command and tool which is used to run jvm so java means jvm.
+
+---
+
+## Modifiers
+
+**What are modifiers?**
+- Modifiers are keywords.
+
+**Examples:** public, private, protected, default, static, final, abstract, native, synchronized, transient, volatile, strictfp
+
+### Types of Modifiers
+
+1. **Access modifiers**
+   - public, private, protected, default
+
+2. **Non-access modifiers**
+   - static, final, abstract, strictfp, transient, volatile, native, synchronized
+
+**Scope:** Means accessibility and visibility
+
+- Access modifiers are used to specify the scope of classes, interfaces, methods and variables.
+- Non-access modifiers are used to provide some functionality.
+
+**Example:**
+```java
+public class One
+{
+   private int i = 10;
+   public int j = 20;
+
+   private void m1() {
+   }
+
+   public void m2() {
+   }
+}
+```
+
+**Non-Access Modifier Examples:**
+
+```java
+// Example 1: final (constant variable)
+final int a = 10;
+a = 20;   //c.e (compile error)
+
+// Example 2: static method
+class One
+{
+   public static void m1() {   //static method
+   }
+}
+
+One.m1();   // Can call without creating object
+```
+
+**Notes:**
+- In java, to call a method of a class object is required.
+  ```java
+  One obj = new One();
+  obj.m1();
+  ```
+- If we want to call the method of a class without creating the object we should declare the method as static which is a non-access modifier.
+- To call the static method object is not required, we can call static method by using Classname directly.
+- Execution of a java program starts from main method so jvm calls main method.
+
+### public static void main(String args[])
+
+**public :**
+- public is an access modifier.
+- jvm calls main method so main method must be accessible and visible to jvm that's why main method is public.
+
+**static :**
+- static is a non-access modifier.
+- jvm calls main method without creating the object that is by using the classname internally that's why main method is static.
+
+**void :**
+- void is a keyword and return type of main method which indicates main method will not return any value.
+
+**main() :**
+- It is the name of the main method from where the execution of a java program starts.
+
+**String args[] :**
+- Main method has 1 parameter whose name is args, whose type is String[] and main method uses args parameter to receive command line arguments.
+
+**Note:** jvm always looks for main method signature as `public static void main(String[] args)`
+
+---
